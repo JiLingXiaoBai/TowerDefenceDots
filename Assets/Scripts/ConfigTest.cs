@@ -1,7 +1,7 @@
 using System.IO;
-using cfg;
 using Luban;
 using UnityEngine;
+using YooAsset;
 
 public class ConfigTest : MonoBehaviour
 {
@@ -11,6 +11,9 @@ public class ConfigTest : MonoBehaviour
         var tables = new cfg.Tables(LoadByteBuf);
         var item = tables.TbItem.GetOrDefault(10000);
         Debug.Log(item.Name);
+
+        var handle = YooAssets.LoadAssetSync<GameObject>("Assets/GameRes/Cube");
+        Instantiate(handle.AssetObject);
     }
 
     // Update is called once per frame
