@@ -1,5 +1,3 @@
-using System.IO;
-using Luban;
 using UnityEngine;
 using YooAsset;
 
@@ -8,8 +6,7 @@ public class ConfigTest : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        var tables = new cfg.Tables(LoadByteBuf);
-        var item = tables.TbItem.GetOrDefault(10000);
+        var item = TDRoot.Tables.TbItem.GetOrDefault(10000);
         Debug.Log(item.Name);
 
         var handle = YooAssets.LoadAssetSync<GameObject>("Assets/GameRes/Cube");
@@ -21,8 +18,5 @@ public class ConfigTest : MonoBehaviour
     {
     }
 
-    private static ByteBuf LoadByteBuf(string file)
-    {
-        return new ByteBuf(File.ReadAllBytes($"{Application.dataPath}/../Config/output/{file}.bytes"));
-    }
+    
 }
