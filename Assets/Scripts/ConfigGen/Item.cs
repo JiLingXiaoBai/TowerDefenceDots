@@ -24,7 +24,6 @@ public sealed partial class Item : Luban.BeanBase
         UpgradeToItemId_Ref = null;
         if(_buf.ReadBool()){ ExpireTime = _buf.ReadLong(); } else { ExpireTime = null; }
         BatchUseable = _buf.ReadBool();
-        Quality = (item.EQuality)_buf.ReadInt();
         ExchangeStream = item.ItemExchange.DeserializeItemExchange(_buf);
         {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);ExchangeList = new System.Collections.Generic.List<item.ItemExchange>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { item.ItemExchange _e0;  _e0 = item.ItemExchange.DeserializeItemExchange(_buf); ExchangeList.Add(_e0);}}
         ExchangeColumn = item.ItemExchange.DeserializeItemExchange(_buf);
@@ -65,10 +64,6 @@ public sealed partial class Item : Luban.BeanBase
     /// </summary>
     public readonly bool BatchUseable;
     /// <summary>
-    /// 品质
-    /// </summary>
-    public readonly item.EQuality Quality;
-    /// <summary>
     /// 道具兑换配置
     /// </summary>
     public readonly item.ItemExchange ExchangeStream;
@@ -90,7 +85,6 @@ public sealed partial class Item : Luban.BeanBase
         UpgradeToItemId_Ref = tables.TbItem.GetOrDefault(UpgradeToItemId);
         
         
-        
         ExchangeStream?.ResolveRef(tables);
         foreach (var _e in ExchangeList) { _e?.ResolveRef(tables); }
         ExchangeColumn?.ResolveRef(tables);
@@ -106,7 +100,6 @@ public sealed partial class Item : Luban.BeanBase
         + "upgradeToItemId:" + UpgradeToItemId + ","
         + "expireTime:" + ExpireTime + ","
         + "batchUseable:" + BatchUseable + ","
-        + "quality:" + Quality + ","
         + "exchangeStream:" + ExchangeStream + ","
         + "exchangeList:" + Luban.StringUtil.CollectionToString(ExchangeList) + ","
         + "exchangeColumn:" + ExchangeColumn + ","
