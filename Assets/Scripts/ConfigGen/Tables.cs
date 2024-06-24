@@ -14,16 +14,22 @@ namespace cfg
 public partial class Tables
 {
     public item.TbItem TbItem {get; }
+    public demo.TbTurret TbTurret {get; }
+    public demo.TbBullet TbBullet {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
     {
         TbItem = new item.TbItem(loader("item_tbitem"));
+        TbTurret = new demo.TbTurret(loader("demo_tbturret"));
+        TbBullet = new demo.TbBullet(loader("demo_tbbullet"));
         ResolveRef();
     }
     
     private void ResolveRef()
     {
         TbItem.ResolveRef(this);
+        TbTurret.ResolveRef(this);
+        TbBullet.ResolveRef(this);
     }
 }
 

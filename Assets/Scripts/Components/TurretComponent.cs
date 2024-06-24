@@ -1,7 +1,8 @@
 using Unity.Entities;
 
-public struct TurretComponent : IComponentData
+namespace Components
 {
-    
+    public struct TurretComponent : IComponentData
+    {
+    }
 }
-

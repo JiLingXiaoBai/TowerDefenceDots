@@ -30,6 +30,13 @@
             "BundleID": 1
         },
         {
+            "Address": "Bullet",
+            "AssetPath": "Assets/GameRes/Bullet.prefab",
+            "AssetGUID": "b5d077522abf23c41928d9f7805ee93f",
+            "AssetTags": [],
+            "BundleID": 2
+        },
+        {
             "Address": "Turret",
             "AssetPath": "Assets/GameRes/Turret.prefab",
             "AssetGUID": "8411f134306fc4748b1658fea977f6d0",
@@ -41,9 +48,9 @@
         {
             "BundleName": "assets_scenes.bundle",
             "UnityCRC": 0,
-            "FileHash": "be64561bb9c4c922437aaf174a883749",
+            "FileHash": "84639c753043776567f11e8064230873",
             "FileCRC": "00000000",
-            "FileSize": 23577,
+            "FileSize": 23185,
             "Encrypted": false,
             "Tags": [],
             "DependIDs": []
@@ -51,9 +58,9 @@
         {
             "BundleName": "assets_scenes_samplescene.bundle",
             "UnityCRC": 0,
-            "FileHash": "f16335f6f9cf67805c171b66ae3e80d4",
+            "FileHash": "744a93bfb765f2aae16d67b64136c394",
             "FileCRC": "00000000",
-            "FileSize": 6005,
+            "FileSize": 4856,
             "Encrypted": false,
             "Tags": [],
             "DependIDs": []
@@ -61,9 +68,9 @@
         {
             "BundleName": "assets_gameres.bundle",
             "UnityCRC": 0,
-            "FileHash": "85943654e182885f7229936564f658f1",
+            "FileHash": "7bb0d00408807854daba2f5c8e59fea7",
             "FileCRC": "00000000",
-            "FileSize": 9456,
+            "FileSize": 12315,
             "Encrypted": false,
             "Tags": [],
             "DependIDs": []

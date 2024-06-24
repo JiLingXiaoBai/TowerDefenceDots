@@ -1,14 +1,17 @@
 using Unity.Entities;
 using UnityEngine;
-
-public class BulletAuthoring : MonoBehaviour
+using Components;
+namespace Authoring
 {
-    private class BulletBaker : Baker<BulletAuthoring>
+    public class BulletAuthoring : MonoBehaviour
     {
-        public override void Bake(BulletAuthoring authoring)
+        private class BulletBaker : Baker<BulletAuthoring>
         {
-            var ent = GetEntity(TransformUsageFlags.Dynamic);
-            AddComponent(ent, new BulletComponent());
+            public override void Bake(BulletAuthoring authoring)
+            {
+                var ent = GetEntity(TransformUsageFlags.Dynamic);
+                AddComponent(ent, new BulletComponent());
+            }
         }
     }
 }

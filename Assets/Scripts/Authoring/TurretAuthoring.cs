@@ -1,14 +1,17 @@
 using Unity.Entities;
 using UnityEngine;
-
-public class TurretAuthoring : MonoBehaviour
+using Components;
+namespace Authoring
 {
-    private class TurretBaker : Baker<TurretAuthoring>
+    public class TurretAuthoring : MonoBehaviour
     {
-        public override void Bake(TurretAuthoring authoring)
+        private class TurretBaker : Baker<TurretAuthoring>
         {
-            var ent = GetEntity(TransformUsageFlags.Dynamic);
-            AddComponent(ent, new TurretComponent());
+            public override void Bake(TurretAuthoring authoring)
+            {
+                var ent = GetEntity(TransformUsageFlags.Dynamic);
+                AddComponent(ent, new TurretComponent());
+            }
         }
     }
 }
