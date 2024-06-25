@@ -18,7 +18,7 @@ namespace Systems
 
         public void OnUpdate(ref SystemState state)
         {
-            if (_spawnCount > 1)
+            if (_spawnCount > 0)
                 return;
             _spawnCount++;
 
