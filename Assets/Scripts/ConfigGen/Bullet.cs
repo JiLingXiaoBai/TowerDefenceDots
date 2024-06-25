@@ -18,6 +18,7 @@ public sealed partial class Bullet : Luban.BeanBase
     {
         Id = _buf.ReadInt();
         Damage = _buf.ReadInt();
+        ExistTime = _buf.ReadFloat();
         Prefab = _buf.ReadString();
     }
 
@@ -28,6 +29,7 @@ public sealed partial class Bullet : Luban.BeanBase
 
     public readonly int Id;
     public readonly int Damage;
+    public readonly float ExistTime;
     public readonly string Prefab;
    
     public const int __ID__ = 2000900386;
@@ -38,6 +40,7 @@ public sealed partial class Bullet : Luban.BeanBase
         
         
         
+        
     }
 
     public override string ToString()
@@ -45,6 +48,7 @@ public sealed partial class Bullet : Luban.BeanBase
         return "{ "
         + "id:" + Id + ","
         + "damage:" + Damage + ","
+        + "existTime:" + ExistTime + ","
         + "prefab:" + Prefab + ","
         + "}";
     }

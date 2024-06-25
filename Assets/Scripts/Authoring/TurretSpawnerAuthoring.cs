@@ -18,6 +18,7 @@ namespace Authoring
                 var turretEnt = GetEntity((GameObject)handle.AssetObject, TransformUsageFlags.Dynamic);
                 AddComponent(spawnerEnt, new TurretSpawnerComponent
                 {
+                    TurretId = authoring.turretId,
                     TurretEntity = turretEnt
                 });
             }
