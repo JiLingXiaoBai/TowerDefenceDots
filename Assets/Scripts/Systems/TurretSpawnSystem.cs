@@ -1,7 +1,6 @@
 using Components;
 using Unity.Collections;
 using Unity.Entities;
-using UnityEngine;
 
 namespace Systems
 {
@@ -25,10 +24,7 @@ namespace Systems
 
             foreach (var spawnerComponent in SystemAPI.Query<RefRO<TurretSpawnerComponent>>())
             {
-                var turretId = spawnerComponent.ValueRO.TurretId;
-                Debug.Log("turretId " + turretId);
-                var tbTurret = TDRoot.Tables.TbTurret[turretId];
-                Debug.Log("turretPrefab " + tbTurret.Prefab);
+                state.EntityManager.Instantiate(spawnerComponent.ValueRO.TurretEntity);
             }
         }
     }
