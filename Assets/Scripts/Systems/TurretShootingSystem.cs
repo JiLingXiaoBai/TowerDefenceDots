@@ -1,6 +1,8 @@
+using System.Linq;
 using Components;
 using Unity.Collections;
 using Unity.Entities;
+using UnityEngine;
 
 namespace Systems
 {
@@ -17,23 +19,20 @@ namespace Systems
 
         public void OnUpdate(ref SystemState state)
         {
-            UnityEngine.Debug.Log("ShootingSystem");
             foreach (var turretComponent in SystemAPI.Query<RefRW<TurretComponent>>())
             {
-                var turretRW = turretComponent.ValueRW;
                 var turretRO = turretComponent.ValueRO;
                 var shoot = false;
-                if (turretRW.AccumulatedTime >= turretRO.FireRate)
+                if (turretRO.AccumulatedTime >= turretRO.FireRate)
                 {
-                    turretRW.AccumulatedTime -= turretRO.FireRate;
+                    turretComponent.ValueRW.AccumulatedTime -= turretRO.FireRate;
                     shoot = true;
                 }
-                turretRW.AccumulatedTime += SystemAPI.Time.DeltaTime;
-
-                if (shoot)
-                {
-                    UnityEngine.Debug.Log("Shooting");
-                }
+                turretComponent.ValueRW.AccumulatedTime += SystemAPI.Time.DeltaTime;
+                // if (shoot)
+                // {
+                //     UnityEngine.Debug.Log("Shooting");
+                // }
             }
         }
     }
