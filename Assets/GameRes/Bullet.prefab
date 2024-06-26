@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1304205180753324562}
   - component: {fileID: 1399972279605333299}
   - component: {fileID: 3222423145783370104}
-  - component: {fileID: 1738330233781156690}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -87,15 +86,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1738330233781156690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7131474382435250914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3edfbb74d77abb4ebdf69c2acf484f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

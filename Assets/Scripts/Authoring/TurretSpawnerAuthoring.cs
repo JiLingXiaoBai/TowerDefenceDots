@@ -7,20 +7,22 @@ namespace Authoring
 {
     public class TurretSpawnerAuthoring : MonoBehaviour
     {
-        public int turretId;
         private class TurretSpawnerBaker : Baker<TurretSpawnerAuthoring>
         {
             public override void Bake(TurretSpawnerAuthoring authoring)
             {
-                var tbTurret = TDRoot.Tables.TbTurret[authoring.turretId];
-                var handle = YooAssets.LoadAssetSync<GameObject>(tbTurret.Prefab);
-                var spawnerEnt = GetEntity(TransformUsageFlags.None);
-                var turretEnt = GetEntity((GameObject)handle.AssetObject, TransformUsageFlags.Dynamic);
-                AddComponent(spawnerEnt, new TurretSpawnerComponent
+                foreach (var tbTurret in TDRoot.Tables.TbTurret.DataList)
                 {
-                    TurretId = authoring.turretId,
-                    TurretEntity = turretEnt
-                });
+                    var turretPrefab = CreateAdditionalEntity(TransformUsageFlags.Dynamic);
+                    var handle = YooAssets.LoadAssetSync<GameObject>(tbTurret.Prefab);
+                    var prefabEnt = GetEntity((GameObject)handle.AssetObject, TransformUsageFlags.Dynamic);
+                    
+                    AddComponent(turretPrefab, new TurretPrefabRef
+                    {
+                        TurretId = tbTurret.Id,
+                        TurretPrefab = prefabEnt
+                    });
+                }
             }
         }
     }

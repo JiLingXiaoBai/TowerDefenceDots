@@ -1,20 +1,14 @@
-using System.Linq;
 using Components;
-using Unity.Collections;
 using Unity.Entities;
-using UnityEngine;
 
 namespace Systems
 {
     public partial struct TurretShootingSystem : ISystem
     {
-        private EntityQuery _entityQuery;
 
         public void OnCreate(ref SystemState state)
         {
-            var queryBuilder = new EntityQueryBuilder(Allocator.Temp).WithAll<TurretComponent>();
-            _entityQuery = state.GetEntityQuery(queryBuilder);
-            state.RequireForUpdate(_entityQuery);
+            state.RequireForUpdate<TurretComponent>();
         }
 
         public void OnUpdate(ref SystemState state)
@@ -29,10 +23,10 @@ namespace Systems
                     shoot = true;
                 }
                 turretComponent.ValueRW.AccumulatedTime += SystemAPI.Time.DeltaTime;
-                // if (shoot)
-                // {
-                //     UnityEngine.Debug.Log("Shooting");
-                // }
+                if (shoot)
+                {
+                    UnityEngine.Debug.Log("Shooting Bullet" + turretRO.BulletId);
+                }
             }
         }
     }
